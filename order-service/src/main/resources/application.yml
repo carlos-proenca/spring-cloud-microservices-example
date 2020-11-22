@@ -1,0 +1,32 @@
+server:
+  port: 9092
+  
+spring:
+  application:
+    name: order-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/orderdb
+    username: postgres
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  cloud:
+    stream:
+      bindings:
+        products:
+          destination: products-queue
+          group: products-queue-group
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq 
+    password: rabbitmq    
+  

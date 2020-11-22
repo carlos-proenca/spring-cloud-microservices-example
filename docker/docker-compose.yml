@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+    postgres:
+        image: postgres
+        volumes:
+        - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+        environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=123
+        ports:
+        - 5432:5432
+    queue:
+        image: "rabbitmq:3-management"
+        hostname: "rabbitmq"
+        environment:
+            RABBITMQ_ERLANG_COOKIE: "rabbitmq-cookie-6574"
+            RABBITMQ_DEFAULT_USER: "rabbitmq"
+            RABBITMQ_DEFAULT_PASS: "rabbitmq"
+            RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        labels:
+            NAME: "rabbitmq"
