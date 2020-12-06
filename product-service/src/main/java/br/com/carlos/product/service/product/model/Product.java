@@ -1,4 +1,4 @@
-package br.com.carlos.product.model;
+package br.com.carlos.product.service.product.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,4 +25,5 @@ public class Product {
 	
 	private String name;
 	private Double price;
+	private Category category;
 }

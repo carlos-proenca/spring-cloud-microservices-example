@@ -1,4 +1,4 @@
-package br.com.carlos.product.stream;
+package br.com.carlos.product.service.product.stream;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
